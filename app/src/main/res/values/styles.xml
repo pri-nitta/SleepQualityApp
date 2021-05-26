@@ -13,7 +13,10 @@
         <item name="colorAccent">@color/green_color</item>
         <item name="colorControlHighlight">@color/green_color</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:width">150dp</item>
+        <item name="android:height">25dp</item>
         <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:background">@drawable/round</item>
     </style>
 
 </resources>

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="sleepTrackerViewModel"
+            type="com.example.sleepquality.fragments.sleeptracker.SleepTrackerViewModel" />
 
     </data>
 
@@ -31,11 +34,12 @@
 
             <TextView
                 android:id="@+id/textview"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/sacramento_regular"
+                android:textSize="@dimen/big_text_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/margin_top"
                 android:layout_marginEnd="@dimen/margin"
                 android:text="@string/how_was_hour_sleep" />
         </ScrollView>
@@ -49,10 +53,9 @@
             style="@style/SleepButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin"
             android:text="@string/start"
             app:layout_constraintBaseline_toBaselineOf="@id/stop_button"
-            app:layout_constraintEnd_toStartOf="@+id/stop_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,16 +65,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:layout_marginEnd="@dimen/margin"
             android:text="@string/stop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/start_button"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/clear_button"
             style="@style/SleepButtons"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
             android:layout_marginEnd="@dimen/margin"

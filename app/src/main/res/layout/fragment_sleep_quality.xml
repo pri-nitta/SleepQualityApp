@@ -16,13 +16,13 @@
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_marginTop="@dimen/margin_top"
             android:layout_marginBottom="@dimen/triple_margin"
             android:fontFamily="@font/sacramento_regular"
             android:text="@string/how_was_hour_sleep"
-            android:textSize="@dimen/title_text_size"
+            android:textSize="@dimen/big_text_size"
             app:layout_constraintBottom_toTopOf="@+id/quality_zero_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,12 +31,14 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_marginStart="@dimen/margin"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_marginTop="@dimen/margin_top"
             android:contentDescription="@string/quality_0"
             app:layout_constraintEnd_toStartOf="@+id/quality_one_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_text"
-            app:srcCompat="@drawable/ic_sleep_0" />
+            app:srcCompat="@drawable/ic_sleep_0"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin" />
 
         <ImageView
             android:id="@+id/quality_one_image"
