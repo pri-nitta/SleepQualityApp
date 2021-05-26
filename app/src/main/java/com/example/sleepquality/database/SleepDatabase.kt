@@ -1,20 +1,30 @@
 package com.example.sleepquality.database
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
-@Entity(tableName = "daily_sleep_quality_table")
-data class SleepNight(
-    @PrimaryKey(autoGenerate = true)
-    var nightId: Long = 0L,
+@Database(entities = [SleepNight::class], version = 1, exportSchema = false)
+abstract class SleepDatabase : RoomDatabase() {
+    abstract val sleepDatabaseDao: SleepDatabaseDao
 
-    @ColumnInfo(name = "start_time_milli")
-    val startTime: Long = System.currentTimeMillis(),
-
-    @ColumnInfo(name = "end_time_milli")
-    var endTime: Long = startTime,
-
-    @ColumnInfo(name = "quality_rating")
-    var sleepQuality: Int = -1
-)
+    companion object {
+        @Volatile
+        private var INSTANCE: SleepDatabase? = null
+        fun getInstance(context: Context): SleepDatabase {
+            synchronized(this) {
+                var instance = INSTANCE
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        SleepDatabase::class.java,
+                        "sleep_history_database"
+                    ).fallbackToDestructiveMigration().build()
+                    INSTANCE = instance
+                }
+                return instance
+            }
+        }
+    }
+}
