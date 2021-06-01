@@ -26,6 +26,7 @@ class SleepTrackerFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
+        val adapter = SleepNightAdapter()
         val sleepTrackerViewModel =
             ViewModelProvider(
                 this, viewModelFactory
@@ -50,6 +51,8 @@ class SleepTrackerFragment : Fragment() {
                 sleepTrackerViewModel.doneShowingSnackBar()
             }
         })
+
+        binding.sleepList.adapter = adapter
 
         return binding.root
     }
